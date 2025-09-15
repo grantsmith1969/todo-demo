@@ -8,6 +8,7 @@ import type {
 } from 'relay-runtime';
 import { Environment, Network, Observable, RecordSource, Store } from 'relay-runtime';
 
+
 const resolveHttpEndpoint = (): string => {
   const envValue = import.meta.env.VITE_GRAPHQL_HTTP;
 
@@ -49,6 +50,7 @@ const resolveWsEndpoint = (): string => {
 };
 
 const wsEndpoint = resolveWsEndpoint();
+
 
 const fetchQuery: FetchFunction = async (operation: RequestParameters, variables: Variables) => {
   const response = await fetch(httpEndpoint, {

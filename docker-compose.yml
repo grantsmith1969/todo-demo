@@ -38,8 +38,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
+
         VITE_GRAPHQL_HTTP: /graphql
         VITE_GRAPHQL_WS: /graphql
+
     depends_on:
       backend:
         condition: service_started
