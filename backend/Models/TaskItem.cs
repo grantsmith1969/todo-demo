@@ -1,4 +1,6 @@
+
 using HotChocolate;
+
 
 namespace TodoDemo.Models;
 
@@ -10,7 +12,9 @@ public enum TaskStatus
 
 public class TaskItem
 {
+
     [ID]
+
     public int Id { get; set; }
 
     public string Title { get; set; } = string.Empty;

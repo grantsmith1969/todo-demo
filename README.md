@@ -78,6 +78,7 @@ The Compose file passes the correct connection string and GraphQL endpoints betw
 production build and proxies `/graphql` (including WebSocket upgrades) straight to the backend so the browser can talk to the API
 using the same origin.
 
+
 ## GraphQL schema snapshot
 
 The schema used by the Relay compiler is stored at `frontend/schema.graphql`. Regenerate it with the running backend via:

@@ -10,7 +10,9 @@ namespace TodoDemo.GraphQL;
 
 public sealed record CreateTaskInput(string Title, string? Description);
 
+
 public sealed record UpdateTaskStatusInput([property: ID(nameof(TaskItem))] int Id, TaskStatusEnum Status);
+
 
 [ExtendObjectType(OperationTypeNames.Mutation)]
 public sealed class TaskMutations
