@@ -1,0 +1,15 @@
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--spectrum-font-family-base, 'Adobe Clean', sans-serif);
+  background-color: var(--spectrum-global-color-gray-100);
+}
