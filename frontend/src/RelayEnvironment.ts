@@ -8,11 +8,49 @@ import type {
 } from 'relay-runtime';
 import { Environment, Network, Observable, RecordSource, Store } from 'relay-runtime';
 
-const httpEndpoint = import.meta.env.VITE_GRAPHQL_HTTP ?? 'http://localhost:5220/graphql';
-const fallbackWs = httpEndpoint.startsWith('https')
-  ? `wss${httpEndpoint.substring(5)}`
-  : `ws${httpEndpoint.substring(4)}`;
-const wsEndpoint = import.meta.env.VITE_GRAPHQL_WS ?? fallbackWs;
+
+const resolveHttpEndpoint = (): string => {
+  const envValue = import.meta.env.VITE_GRAPHQL_HTTP;
+
+  if (envValue) {
+    if (typeof window !== 'undefined') {
+      return new URL(envValue, window.location.href).toString();
+    }
+
+    return envValue;
+  }
+
+  return 'http://localhost:5220/graphql';
+};
+
+const httpEndpoint = resolveHttpEndpoint();
+
+const resolveWsEndpoint = (): string => {
+  const envValue = import.meta.env.VITE_GRAPHQL_WS;
+
+  if (typeof window !== 'undefined') {
+    const url = new URL(envValue ?? httpEndpoint, window.location.href);
+
+    if (url.protocol === 'http:') {
+      url.protocol = 'ws:';
+    } else if (url.protocol === 'https:') {
+      url.protocol = 'wss:';
+    }
+
+    return url.toString();
+  }
+
+  if (envValue) {
+    return envValue;
+  }
+
+  return httpEndpoint.startsWith('https')
+    ? `wss${httpEndpoint.substring(5)}`
+    : `ws${httpEndpoint.substring(4)}`;
+};
+
+const wsEndpoint = resolveWsEndpoint();
+
 
 const fetchQuery: FetchFunction = async (operation: RequestParameters, variables: Variables) => {
   const response = await fetch(httpEndpoint, {

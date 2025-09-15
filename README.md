@@ -75,7 +75,10 @@ This starts three services:
 * `frontend` – the React UI served by Nginx on <http://localhost:4173>
 
 The Compose file passes the correct connection string and GraphQL endpoints between services. The frontend image performs a
-production build using the provided GraphQL URLs before serving static assets through Nginx.
+
+production build and proxies `/graphql` (including WebSocket upgrades) straight to the backend so the browser can talk to the API
+using the same origin.
+
 
 ## GraphQL schema snapshot
 
