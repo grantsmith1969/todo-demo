@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<cf015687b48c34985cf47f11a7a84e83>>
+ * @generated SignedSource<<e9804f47429a2835e4b6b08472a9c6d4>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type AppTaskSubscription$data = {
   readonly onTaskChanged: {
     readonly createdAt: any;
     readonly description: string | null | undefined;
-    readonly id: number;
+    readonly id: string;
     readonly status: TaskStatus;
     readonly title: string;
     readonly updatedAt: any | null | undefined;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<24cd0c231379d731e2fcf4cb18812154>>
+ * @generated SignedSource<<0c552e9e22deda4f509343b22ec1892d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type AppTasksQuery$data = {
   readonly getAllTasks: ReadonlyArray<{
     readonly createdAt: any;
     readonly description: string | null | undefined;
-    readonly id: number;
+    readonly id: string;
     readonly status: TaskStatus;
     readonly title: string;
     readonly updatedAt: any | null | undefined;

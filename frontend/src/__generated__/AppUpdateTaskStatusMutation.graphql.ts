@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<470de9c68cda43b554655ce3e0066dad>>
+ * @generated SignedSource<<cab68cb1087dff122a873ef96b1427d9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,7 @@
 import { ConcreteRequest } from 'relay-runtime';
 export type TaskStatus = "COMPLETED" | "PENDING" | "%future added value";
 export type UpdateTaskStatusInput = {
-  id: number;
+  id: string;
   status: TaskStatus;
 };
 export type AppUpdateTaskStatusMutation$variables = {
@@ -21,7 +21,7 @@ export type AppUpdateTaskStatusMutation$data = {
   readonly updateTaskStatus: {
     readonly createdAt: any;
     readonly description: string | null | undefined;
-    readonly id: number;
+    readonly id: string;
     readonly status: TaskStatus;
     readonly title: string;
     readonly updatedAt: any | null | undefined;

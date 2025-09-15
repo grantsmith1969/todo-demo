@@ -44,7 +44,7 @@ type Subscription {
 }
 
 type TaskItem {
-  id: Int!
+  id: ID!
   title: String!
   description: String
   status: TaskStatus!
@@ -58,7 +58,7 @@ enum TaskStatus {
 }
 
 input UpdateTaskStatusInput {
-  id: Int!
+  id: ID!
   status: TaskStatus!
 }
 

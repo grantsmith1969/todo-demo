@@ -121,7 +121,7 @@ export default function App() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
-  const [pendingTaskIds, setPendingTaskIds] = useState<Set<number>>(new Set());
+  const [pendingTaskIds, setPendingTaskIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const subscription = requestSubscription<AppTaskSubscription>(environment, {
@@ -196,7 +196,7 @@ export default function App() {
     });
   };
 
-  const handleStatusToggle = (taskId: number, currentStatus: string) => {
+  const handleStatusToggle = (taskId: string, currentStatus: string) => {
     const nextStatus = currentStatus === 'COMPLETED' ? 'PENDING' : 'COMPLETED';
 
     setPendingTaskIds((previous) => {

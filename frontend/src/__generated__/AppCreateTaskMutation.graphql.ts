@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<636c90dd45ceec1f5444bad4269f1588>>
+ * @generated SignedSource<<76238779f9687ca20b4823cf72f076ee>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -21,7 +21,7 @@ export type AppCreateTaskMutation$data = {
   readonly createTask: {
     readonly createdAt: any;
     readonly description: string | null | undefined;
-    readonly id: number;
+    readonly id: string;
     readonly status: TaskStatus;
     readonly title: string;
     readonly updatedAt: any | null | undefined;
